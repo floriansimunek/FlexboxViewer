@@ -32,7 +32,7 @@ h1 {
 		position: sticky;
 		top: 2%;
 		left: 2%;
-		z-index: 1;
+		z-index: 10;
 	}
 }
 
@@ -47,15 +47,65 @@ html {
 	height: 100%;
 }
 
+/* VIEW */
+.view {
+	position: absolute;
+	top: 0;
+	left: 25%;
+	width: 75%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&.expanded {
+		left: 0%;
+		width: 100%;
+	}
+}
+
+/* MODALS */
+.modal__addBlock {
+	display: none;
+	background-color: rgba($color: $background, $alpha: 0.7);
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+
+	&.open {
+		display: flex;
+	}
+
+	.form {
+		background-color: $primary;
+		width: 35%;
+		height: 90%;
+
+		.inputs {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+}
+
 /* SIDEBAR */
 .sidebar {
 	background-color: $background;
-	width: 25vw;
-	height: 100vh;
+	width: 25%;
+	height: 100%;
 	position: absolute;
 	top: 0%;
 	left: 0%;
 	padding: 5% 0 0 2%;
+	z-index: 1;
 
 	&.expanded {
 		left: -25%;
@@ -90,6 +140,34 @@ html {
 			img {
 				transform: rotate(270deg);
 			}
+		}
+	}
+
+	.addBlock {
+		&.disabled {
+			opacity: 0.6;
+			pointer-events: none;
+		}
+	}
+}
+
+/* BUTTONS */
+.btn {
+	color: $button-text;
+	border: none;
+	width: fit-content;
+	padding: 0.5rem 1rem;
+	border-radius: 5px;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&--blue {
+		background-color: $primary;
+
+		&:hover {
+			background-color: darken($primary, 10%);
 		}
 	}
 }

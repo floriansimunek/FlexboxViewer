@@ -21,7 +21,7 @@ h1.title {
   position: sticky;
   top: 2%;
   left: 2%;
-  z-index: 1;
+  z-index: 10;
 }
 
 /* BODY */
@@ -35,15 +35,61 @@ html {
   height: 100%;
 }
 
+/* VIEW */
+.view {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width: 75%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.view.expanded {
+  left: 0%;
+  width: 100%;
+}
+
+/* MODALS */
+.modal__addBlock {
+  display: none;
+  background-color: rgba(36, 38, 41, 0.7);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.modal__addBlock.open {
+  display: flex;
+}
+.modal__addBlock .form {
+  background-color: #0065ff;
+  width: 35%;
+  height: 90%;
+}
+.modal__addBlock .form .inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* SIDEBAR */
 .sidebar {
   background-color: #242629;
-  width: 25vw;
-  height: 100vh;
+  width: 25%;
+  height: 100%;
   position: absolute;
   top: 0%;
   left: 0%;
   padding: 5% 0 0 2%;
+  z-index: 1;
 }
 .sidebar.expanded {
   left: -25%;
@@ -74,4 +120,26 @@ html {
 }
 .sidebar__button.expanded img {
   transform: rotate(270deg);
+}
+.sidebar .addBlock.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* BUTTONS */
+.btn {
+  color: #fffffe;
+  border: none;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.btn--blue {
+  background-color: #0065ff;
+}
+.btn--blue:hover {
+  background-color: #0051cc;
 }
