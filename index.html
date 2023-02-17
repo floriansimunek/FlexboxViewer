@@ -18,7 +18,7 @@
 				<img src="assets/icons/arrow.svg" alt="" />
 			</div>
 
-			<input class="btn btn--blue addBlock" type="button" value="Add block" />
+			<input class="btn btn--blue addBlock" type="button" value="Add parent block" />
 		</div>
 
 		<!-- VIEW -->
@@ -30,19 +30,22 @@
 				<h2>Parent block properties</h2>
 
 				<div class="inputs">
-					<label for="parentWidth">Width</label>
-					<input id="parentWidth" type="text" />
-
-					<label for="parentHeight">Height</label>
-					<input id="parentHeight" type="text" />
-
-					<label for="parentPadding">Padding</label>
-					<input id="parentPadding" type="text" />
-
-					<label for="parentBorder">Border</label>
-					<input id="parentBorder" type="text" />
-
-					<input class="submitParentBlock" type="submit" value="Ok" />
+					<div class="input__block">
+						<label for="parentWidth">Width</label>
+						<input id="parentWidth" type="text" value="50" />
+						<p>%</p>
+					</div>
+					<div class="input__block">
+						<label for="parentHeight">Height</label>
+						<input id="parentHeight" type="text" value="50" />
+						<p>%</p>
+					</div>
+					<div class="input__block">
+						<label for="parentPadding">Padding</label>
+						<input id="parentPadding" type="text" value="0" />
+						<p>px</p>
+					</div>
+					<input class="btn btn--dark submitParentBlock" type="submit" value="Create block" />
 				</div>
 			</div>
 		</div>

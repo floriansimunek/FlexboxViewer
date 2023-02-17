@@ -39,16 +39,11 @@ html {
 .view {
   position: absolute;
   top: 0;
-  left: 25%;
-  width: 75%;
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.view.expanded {
-  left: 0%;
-  width: 100%;
 }
 
 /* MODALS */
@@ -69,13 +64,52 @@ html {
 }
 .modal__addBlock .form {
   background-color: #0065ff;
-  width: 35%;
-  height: 90%;
+  width: 20%;
+  padding: 20px;
+  border-radius: 2px;
+  text-align: center;
+}
+.modal__addBlock .form h2 {
+  color: #fffffe;
+  margin-bottom: 30px;
+}
+.modal__addBlock .form .submitParentBlock {
+  margin-top: 30px;
 }
 .modal__addBlock .form .inputs {
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal__addBlock .form .inputs .input__block {
+  width: 100%;
+  margin: 5px 0;
+  display: flex;
+  justify-content: center;
+}
+.modal__addBlock .form .inputs .input__block label,
+.modal__addBlock .form .inputs .input__block input {
+  color: #fffffe;
+  display: flex;
+  align-items: center;
+  width: 30%;
+}
+.modal__addBlock .form .inputs .input__block input {
+  border: none;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 2px solid #fffffe;
+  border-radius: 2px;
+}
+.modal__addBlock .form .inputs .input__block input:active, .modal__addBlock .form .inputs .input__block input:focus {
+  outline: none;
+}
+.modal__addBlock .form .inputs .input__block p {
+  margin-left: 10px;
+  color: #fffffe;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -142,4 +176,10 @@ html {
 }
 .btn--blue:hover {
   background-color: #0051cc;
+}
+.btn--dark {
+  background-color: #16161a;
+}
+.btn--dark:hover {
+  background-color: #2d2d36;
 }
