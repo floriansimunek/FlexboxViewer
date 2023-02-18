@@ -22,6 +22,7 @@ h1.title {
   top: 2%;
   left: 2%;
   z-index: 10;
+  pointer-events: none;
 }
 
 /* BODY */
@@ -39,15 +40,20 @@ html {
 .view {
   position: absolute;
   top: 0;
-  width: 100%;
+  margin-left: 25%;
+  width: 75%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.view.expanded {
+  width: 100%;
+  margin-left: 0;
+}
 
 /* MODALS */
-.modal__addBlock {
+.modal__addParentBlock {
   display: none;
   background-color: rgba(36, 38, 41, 0.7);
   width: 100vw;
@@ -59,56 +65,59 @@ html {
   align-items: center;
   z-index: 10;
 }
-.modal__addBlock.open {
+.modal__addParentBlock.open {
   display: flex;
 }
-.modal__addBlock .form {
+.modal__addParentBlock .form {
   background-color: #0065ff;
   width: 20%;
   padding: 20px;
-  border-radius: 2px;
+  border-radius: 5px;
   text-align: center;
 }
-.modal__addBlock .form h2 {
+.modal__addParentBlock .form h2 {
   color: #fffffe;
   margin-bottom: 30px;
 }
-.modal__addBlock .form .submitParentBlock {
+.modal__addParentBlock .form .submitParentBlock {
   margin-top: 30px;
 }
-.modal__addBlock .form .inputs {
+.modal__addParentBlock .form .inputs {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.modal__addBlock .form .inputs .input__block {
+.modal__addParentBlock .form .inputs .input__block {
   width: 100%;
   margin: 5px 0;
   display: flex;
   justify-content: center;
 }
-.modal__addBlock .form .inputs .input__block label,
-.modal__addBlock .form .inputs .input__block input {
-  color: #fffffe;
+.modal__addParentBlock .form .inputs .input__block label,
+.modal__addParentBlock .form .inputs .input__block input {
+  color: #fff;
   display: flex;
   align-items: center;
+}
+.modal__addParentBlock .form .inputs .input__block label {
   width: 30%;
 }
-.modal__addBlock .form .inputs .input__block input {
+.modal__addParentBlock .form .inputs .input__block input {
+  width: 20%;
   border: none;
   padding: 0.5rem 1rem;
-  background-color: transparent;
-  border: 2px solid #fffffe;
+  background-color: #0051cc;
   border-radius: 2px;
+  text-align: center;
 }
-.modal__addBlock .form .inputs .input__block input:active, .modal__addBlock .form .inputs .input__block input:focus {
+.modal__addParentBlock .form .inputs .input__block input:active, .modal__addParentBlock .form .inputs .input__block input:focus {
   outline: none;
 }
-.modal__addBlock .form .inputs .input__block p {
+.modal__addParentBlock .form .inputs .input__block p {
   margin-left: 10px;
-  color: #fffffe;
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,7 +164,7 @@ html {
 .sidebar__button.expanded img {
   transform: rotate(270deg);
 }
-.sidebar .addBlock.disabled {
+.sidebar .addParentBlock.disabled {
   opacity: 0.6;
   pointer-events: none;
 }
@@ -182,4 +191,26 @@ html {
 }
 .btn--dark:hover {
   background-color: #2d2d36;
+}
+
+/* BLOCKS */
+.parentBlock {
+  display: flex;
+  border: 5px solid #0065ff;
+}
+
+/* BLOCKS LIST */
+.blocksList {
+  margin: 5% 0 0 0;
+}
+.blocksList .options {
+  width: 70%;
+  height: 40px;
+  background-color: #0065ff;
+  border-radius: 5px;
+  padding: 0 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
 }

@@ -6,6 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Flexbox Viewer</title>
 		<link rel="stylesheet" href="style.css" />
+
+		<!-- SCRIPT -->
+		<script src="scripts/utils/sidebar.js" defer></script>
+		<script src="scripts/models/Element.js" defer></script>
 		<script src="app.js" defer></script>
 	</head>
 	<body>
@@ -18,14 +22,16 @@
 				<img src="assets/icons/arrow.svg" alt="" />
 			</div>
 
-			<input class="btn btn--blue addBlock" type="button" value="Add parent block" />
+			<input class="btn btn--blue addParentBlock" type="button" value="Add parent block" />
+
+			<div class="blocksList"></div>
 		</div>
 
 		<!-- VIEW -->
 		<div class="view"></div>
 
 		<!-- MODAL ADD BLOCK -->
-		<div class="modal__addBlock">
+		<div class="modal__addParentBlock">
 			<div class="form">
 				<h2>Parent block properties</h2>
 

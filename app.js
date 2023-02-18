@@ -1,34 +1,54 @@
-const VIEW = document.querySelector(".view");
+class App {
+	constructor() {
+		this.view = document.querySelector(".view");
+		this.addParentBlock = document.querySelector(".addParentBlock");
+		this.parentModal = document.querySelector(".modal__addParentBlock");
+		this.parentWidth = document.querySelector("#parentWidth");
+		this.parentHeight = document.querySelector("#parentHeight");
+		this.parentPadding = document.querySelector("#parentPadding");
+		this.submitParentParams = document.querySelector(".submitParentBlock");
+		this.blocksList = document.querySelector(".blocksList");
+	}
 
-const SIDEBAR = document.querySelector(".sidebar");
-const SIDEBAR_BUTTON = document.querySelector(".sidebar__button");
+	init() {
+		this.initParentModal();
+		this.initChildsModal();
+	}
 
-SIDEBAR_BUTTON.addEventListener("click", () => {
-	SIDEBAR.classList.toggle("expanded");
-	SIDEBAR_BUTTON.classList.toggle("expanded");
-});
+	initParentModal() {
+		this.addParentBlock.addEventListener("click", () => {
+			this.parentModal.classList.toggle("open");
+		});
 
-const ADD_BLOCK_BUTTON = document.querySelector(".addBlock");
-const ADD_BLOCK_MODAL = document.querySelector(".modal__addBlock");
+		this.submitParentParams.addEventListener("click", () => {
+			const parentBlock = new Element("div", [
+				{ name: "class", value: "parentBlock" },
+				{ name: "data-name", value: "Parent" },
+				{
+					name: "style",
+					value: `width: ${this.parentWidth.value}%; height: ${this.parentHeight.value}%; padding: ${this.parentPadding.value}px;`,
+				},
+			]);
+			this.view.append(parentBlock);
 
-const PARENT_WIDTH = document.querySelector("#parentWidth");
-const PARENT_HEIGHT = document.querySelector("#parentHeight");
-const PARENT_PADDING = document.querySelector("#parentPadding");
+			const optionParentBlock = new Element("div", [
+				{ name: "class", value: "optionParentBlock options" },
+			]);
+			const optionText = new Element(
+				"p",
+				[],
+				[{ name: "textContent", value: parentBlock.dataset.name }],
+			);
+			optionParentBlock.append(optionText);
+			this.blocksList.append(optionParentBlock);
 
-const SUBMIT_INPUTS = document.querySelector(".submitParentBlock");
+			this.parentModal.classList.toggle("open");
+			this.addParentBlock.classList.add("disabled");
+		});
+	}
 
-ADD_BLOCK_BUTTON.addEventListener("click", () => {
-	ADD_BLOCK_MODAL.classList.toggle("open");
-});
+	initChildsModal() {}
+}
 
-SUBMIT_INPUTS.addEventListener("click", () => {
-	const PARENT = document.createElement("div");
-	PARENT.style.width = PARENT_WIDTH.value + "%";
-	PARENT.style.height = PARENT_HEIGHT.value + "%";
-	PARENT.style.padding = PARENT_PADDING.value + "px";
-	PARENT.style.border = "10px solid #0065FF";
-
-	VIEW.append(PARENT);
-	ADD_BLOCK_MODAL.classList.toggle("open");
-	ADD_BLOCK_BUTTON.classList.add("disabled");
-});
+const app = new App();
+app.init();

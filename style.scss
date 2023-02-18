@@ -7,7 +7,7 @@ $background: #242629;
 $stroke: #010101;
 
 $headline: #fffffe;
-$text: #94a1b2;
+$text: #fff;
 $button-text: #fffffe;
 
 /* RESET */
@@ -33,6 +33,7 @@ h1 {
 		top: 2%;
 		left: 2%;
 		z-index: 10;
+		pointer-events: none;
 	}
 }
 
@@ -51,15 +52,21 @@ html {
 .view {
 	position: absolute;
 	top: 0;
-	width: 100%;
+	margin-left: 25%;
+	width: 75%;
 	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	&.expanded {
+		width: 100%;
+		margin-left: 0;
+	}
 }
 
 /* MODALS */
-.modal__addBlock {
+.modal__addParentBlock {
 	display: none;
 	background-color: rgba($color: $background, $alpha: 0.7);
 	width: 100vw;
@@ -79,7 +86,7 @@ html {
 		background-color: $primary;
 		width: 20%;
 		padding: 20px;
-		border-radius: 2px;
+		border-radius: 5px;
 		text-align: center;
 
 		h2 {
@@ -106,18 +113,22 @@ html {
 
 				label,
 				input {
-					color: $headline;
+					color: $text;
 					display: flex;
 					align-items: center;
+				}
+
+				label {
 					width: 30%;
 				}
 
 				input {
+					width: 20%;
 					border: none;
 					padding: 0.5rem 1rem;
-					background-color: transparent;
-					border: 2px solid $headline;
+					background-color: darken($primary, 10%);
 					border-radius: 2px;
+					text-align: center;
 
 					&:active,
 					&:focus {
@@ -127,7 +138,7 @@ html {
 
 				p {
 					margin-left: 10px;
-					color: $headline;
+					color: $text;
 					display: flex;
 					justify-content: center;
 					align-items: center;
@@ -184,7 +195,7 @@ html {
 		}
 	}
 
-	.addBlock {
+	.addParentBlock {
 		&.disabled {
 			opacity: 0.6;
 			pointer-events: none;
@@ -218,5 +229,28 @@ html {
 		&:hover {
 			background-color: lighten($dark-background, 10%);
 		}
+	}
+}
+
+/* BLOCKS */
+.parentBlock {
+	display: flex;
+	border: 5px solid $primary;
+}
+
+/* BLOCKS LIST */
+.blocksList {
+	margin: 5% 0 0 0;
+
+	.options {
+		width: 70%;
+		height: 40px;
+		background-color: $primary;
+		border-radius: 5px;
+		padding: 0 5%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		color: $text;
 	}
 }
